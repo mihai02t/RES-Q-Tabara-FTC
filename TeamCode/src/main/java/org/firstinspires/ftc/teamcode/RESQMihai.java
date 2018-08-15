@@ -33,7 +33,7 @@ public class RESQMihai extends LinearOpMode {
 
         waitForStart();
 
-        while (opModeIsActive()) {
+        while (opModeIsActive() && !isStopRequested()) {
             double left_stick_y = -this.gamepad1.left_stick_y;
             double right_stick_y = -this.gamepad1.right_stick_y;
             double left_stick_y_2 = -this.gamepad2.left_stick_y;
@@ -52,7 +52,7 @@ public class RESQMihai extends LinearOpMode {
             }
 
             if(this.gamepad1.a) {
-                while(this.gamepad1.a);
+                while(this.gamepad1.a && opModeIsActive() && !isStopRequested());
                 if(upLimit.getState()) {
                     flag = 1;
                 }
